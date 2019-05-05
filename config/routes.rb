@@ -6,7 +6,10 @@ Rails.application.routes.draw do
 
   # Rails provides a resources method which can be used to declare a standard REST resource.
   # Check this by running `bin/rails routes`
-  resources :articles
+  # Creates comments as a nested resource within articles
+  resources :articles do
+    resources :comments
+  end
 
   # map requests to the root of the application to the welcome controller's index action
   root 'welcome#index'
